@@ -1,73 +1,65 @@
-# React + TypeScript + Vite
+# High-Performance DataGrid Assessment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A production-grade, accessible, and high-performance DataGrid component built with React 19, TypeScript, and Tailwind CSS.
 
-Currently, two official plugins are available:
+##  Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-   **Virtualization**: Efficiently renders 100,000+ rows using a custom virtualization engine, maintaining 60 FPS scrolling.
+-   **Pinned Columns**: Support for "Sticky" columns on both left and right sides.
+-   **Multi-Column Sorting**: Shift + Click headers to sort by multiple criteria with priority indicators.
+-   **Column Resizing**: Real-time drag-and-drop column width adjustment.
+-   **Inline Editing**: Double-click cells to edit data with built-in validation support.
+-   **Undo Support**: `Ctrl + Z` functionality for cell edits.
+-   **Keyboard Navigation**: Full arrow key navigation support between cells and headers.
+-   **A11y Compliant**: 0 Axe-core violations, valid ARIA hierarchy, and visible focus indicators.
 
-## React Compiler
+##  Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
+- Node.js (v18+)
+- npm or yarn
 
-## Expanding the ESLint configuration
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/MohdShadab552004/data-grid-assessment.git
+cd data-grid-assessment
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Install dependencies
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
+```bash
+# Start Vite development server
+npm run dev
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Start Storybook for component isolation/testing
+npm run storybook
 ```
+
+### Build & Lint
+```bash
+# Run linting
+npm run lint
+
+# Build for production
+npm run build
+```
+
+## Reports
+
+Detailed analysis regarding the component's architecture and quality:
+
+-   **[Final DataGrid Submission Report](./Final_DataGrid_Submission_Report.md)**: Comprehensive technical audit including API Docs, Performance metrics, and Accessibility fixes.
+
+## Accessibility Compliance
+- **Status**: Passing (0 violations)
+- **Keyboard**: Arrow key navigation, Tab sequence entry, and visible focus rings.
+- **ARIA**: Validated roles (`grid`, `rowgroup`, `row`, `columnheader`, `gridcell`).
+
+##  Performance Summary
+- **Dataset**: Tested with 50,000 rows.
+- **Scrolling**: Fluid 60 FPS vertical and horizontal scrolling.
+- **Latency**: Sub-200ms sorting and negligible resizing lag.
+
